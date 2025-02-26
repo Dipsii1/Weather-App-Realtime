@@ -11,7 +11,7 @@ import wind_icon from '../assets/wind.png'
 
 
 const Weather = () => {
-  const inputRef = useRef()
+  const Search = useRef()
   const [weatherData, setWeatherData] = useState(false)
 
   const icons = {
@@ -59,8 +59,8 @@ const Weather = () => {
   return (
     <div className='weather'>
       <div className='search-bar'>
-        <input ref= {inputRef}type='text' placeholder='Search...'/>
-        <img src={search_icon} alt='' onClick={() =>search(inputRef.current.value)}/>
+        <input ref= {Search}type='text' placeholder='Search...'/>
+        <img src={search_icon} alt='' onClick={() =>search(Search.current.value)}/>
       </div>
     <img src={weatherData.icon} alt='' className='weather-icon'/>
     <p className='temp'>{weatherData.temp}°C</p>
