@@ -7,9 +7,7 @@ import Weather from './components/Weather';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className='app'>
       <Weather/>
-    </div>
   </React.StrictMode>
 );
 

@@ -57,7 +57,6 @@ const Weather = () => {
 
 
   return (
-    <div className='root'>
     <div className='weather'>
       <div className='search-bar'>
         <input ref= {inputRef}type='text' placeholder='Search...'/>
@@ -81,7 +80,6 @@ const Weather = () => {
           <span>Wind Speed</span>
         </div>
       </div>
-    </div>
     </div>
     </div>
   )
