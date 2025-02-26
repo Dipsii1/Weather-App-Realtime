@@ -48,11 +48,12 @@ const Weather = () => {
         icon
       })
     } catch (error) {
+      alert("City not found")
     }
   }
 
   useEffect(() => {
-    search("");
+    search("Indonesia");
   }, [])
 
 
