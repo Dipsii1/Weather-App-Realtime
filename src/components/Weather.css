@@ -2,7 +2,7 @@
     place-self: center;
     padding: 40px;
     border-radius: 10px;
-    background-color: #5558e2;
+    background:linear-gradient(#C5BAFF, #C4D9FF);
     display: flex;
     flex-direction: column;
     align-items: center;

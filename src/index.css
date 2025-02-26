@@ -11,5 +11,5 @@
 #root{
   min-height: 100vh;
   display: grid;
-  
+  background: linear-gradient(#DAD2FF, #F8E7F6 );
 }
