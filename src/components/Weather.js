@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import './Weather.css'
 import search_icon from '../assets/search.png'
 import clear_icon from '../assets/clear.png'
 import cloud_icon from '../assets/cloud.png'
@@ -33,6 +32,11 @@ const Weather = () => {
   }
 
   const search = async (city) => {
+    if(!city) {
+      alert('Please enter or a country or city')
+      return
+    }
+
     try {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
 
@@ -53,36 +57,38 @@ const Weather = () => {
   }
 
   useEffect(() => {
-    search("Indonesia");
+    search('Indonesia')
   }, [])
 
-
+  
   return (
-    <div className='weather'>
-      <div className='search-bar'>
-        <input ref= {Search}type='text' placeholder='Search...'/>
-        <img src={search_icon} alt='' onClick={() =>search(Search.current.value)}/>
+    <div className='p-10 place-self-center rounded-2xl flex flex-col items-center bg-gradient-to-r from-indigo-100 to-indigo-400'>
+      <div className='flex items-center gap-5'>
+        <input ref= {Search}type='text' placeholder='Search...' className='w-64 h-12 border-none outline-none rounded-3xl pl-6'/>
+        <img src={search_icon} alt='' onClick={() =>search(Search.current.value)} className='p-4 rounded-full bg-white cursor-pointer'/>
       </div>
-    <img src={weatherData.icon} alt='' className='weather-icon'/>
-    <p className='temp'>{weatherData.temp}°C</p>
-    <p className='location'>{weatherData.location}</p>
-    <div className='weather-info'>
-      <div className='col'>
-        <img src={humidity_icon} alt='' />
+    <img src={weatherData.icon} alt='' className='w-36 m-8'/>
+    <p className='text-7xl text-white'>{weatherData.temp}°C</p>
+    <p className='text-3xl text-white'>{weatherData.location}</p>
+    <div className='flex w-full mt-10 justify-between'>
+      <div className='flex items-start gap-3 text-base'>
+        <img className='w-7 mt-1' src={humidity_icon} alt='' />
         <div>
-          <p>{weatherData.humidity} %</p>
-          <span>humidity</span>
+          <p className='text-white'>{weatherData.humidity} %</p>
+          <span className='block text-base text-white'>humidity</span>
         </div>
       </div>
-      <div className='col'>
-        <img src={wind_icon} alt='' />
+      <div className='flex items-start gap-3 text-base'>
+        <img className='w-7 mt-1' src={wind_icon} alt='' />
         <div>
-          <p>{weatherData.wind} Km/h</p>
-          <span>Wind Speed</span>
+          <p className='text-white'>{weatherData.wind} Km/h</p>
+          <span className='block text-base text-white'>Wind Speed</span>
         </div>
       </div>
     </div>
     </div>
+
+    
   )
 }
 
