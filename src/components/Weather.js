@@ -32,6 +32,7 @@ const Weather = () => {
   }
 
   const search = async (city) => {
+
     if(!city) {
       alert('Please enter or a country or city')
       return
@@ -44,6 +45,7 @@ const Weather = () => {
       const data = await response.json()
       console.log(data)
       const icon = icons[data.weather[0].icon] || clear_icon
+
       setWeatherData({
         humidity: data.main.humidity,
         wind: data.wind.speed,
@@ -51,8 +53,9 @@ const Weather = () => {
         location: data.name,
         icon
       })
+      
     } catch (error) {
-      alert("City not found")
+      console.log(error)
     }
   }
 
